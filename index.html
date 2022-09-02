@@ -1,108 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bookshelf App</title>
-    <link rel="shortcut icon" href="assets/images/ICON.png" type="image/x-icon">
-    <link rel="stylesheet" href="assets/styles/style.css">
-</head>
-<body>
+    <link
+      rel="shortcut icon"
+      href="assets/images/ICON.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="assets/styles/style.css" />
+  </head>
+  <body>
     <header>
-        <div class="jumbotron">
-            <a href="#">
-                <h1>Bookshelf App</h1>
-            </a>
-        </div>
+      <div class="jumbotron">
+        <a href="#">
+          <h1>Bookshelf App</h1>
+        </a>
+      </div>
     </header>
     <main>
-        <div class="content-1">
-            <p class="text-welcome">Hai, Selamat Datang di <span id="text-bookshelf">Bookshelf App</span>!</p>
+      <div class="content-1">
+        <p class="text-welcome">
+          Hai, Selamat Datang di <span id="text-bookshelf">Bookshelf App</span>!
+        </p>
+      </div>
+      <div class="content-2">
+        <form id="tambahBuku">
+          <p id="text-1">Form Buku Baru</p>
+          <div class="form-group">
+            <label class="form-group-label" for="judulBuku">Judul</label><br />
+            <input
+              type="text"
+              id="judulBuku"
+              name="judulBuku"
+              placeholder="Inputkan Judul Buku"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-group-label" for="penulisBuku">Penulis</label
+            ><br />
+            <input
+              type="text"
+              id="penulisBuku"
+              name="penulisBuku"
+              placeholder="Inputkan Penulis Buku"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-group-label" for="tahunBuku">Tahun</label><br />
+            <input
+              type="number"
+              id="tahunBuku"
+              name="tahunBuku"
+              placeholder="Inputkan Tahun Buku"
+              required
+            />
+          </div>
+          <div class="form-checkbox">
+            <label id="text-2" for="input-checkbox">Selesai dibaca</label>
+            <input id="input-checkbox" type="checkbox" />
+          </div>
+          <button type="submit" id="tambahBukuSubmit">Kirim</button>
+        </form>
+        <form id="cariBuku">
+          <p id="text-3">Pencarian Buku</p>
+          <input
+            id="judul-cariBuku"
+            type="text"
+            placeholder="Inputkan Judul Pencarian Buku"
+            required
+          />
+          <button type="submit" id="cariBukuSubmit">Cari</button>
+        </form>
+      </div>
+      <div class="content-3">
+        <div class="rakBuku">
+          <p id="text-4">Rak Buku Belum Selesai Dibaca</p>
+          <div id="rakBukuBelumSelesai" class="listBuku"></div>
         </div>
-        <div class="content-2">
-            <form id="tambahBuku">
-                <p id="text-1">Form Buku Baru</p>
-                <div class="form-group">
-                    <label class="form-group-label" for="judulBuku">Judul</label><br>
-                    <input type="text" id="judulBuku" name="judulBuku" placeholder="Inputkan Judul Buku" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-group-label" for="penulisBuku">Penulis</label><br>
-                    <input type="text" id="penulisBuku" name="penulisBuku" placeholder="Inputkan Penulis Buku" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-group-label" for="tahunBuku">Tahun</label><br>
-                    <input type="number" id="tahunBuku" name="tahunBuku" placeholder="Inputkan Tahun Buku" required>
-                </div>
-                <div class="form-checkbox">
-                    <label id="text-2" for="input-checkbox">Selesai dibaca</label>
-                    <input id="input-checkbox" type="checkbox">
-                </div>
-                <button type="submit" id="tambahBukuSubmit">Kirim</button>
+        <div class="rakBuku">
+          <p id="text-4">Rak Buku Sudah Selesai Dibaca</p>
+          <div id="rakBukuSudahSelesai" class="listBuku"></div>
+        </div>
+      </div>
+      <div id="popUpEdit" class="pop-up">
+        <div class="pop-up-container-1">
+          <div class="pop-up-form">
+            <p>Form Edit Buku</p>
+            <form id="formEditBuku">
+              <div class="form-group">
+                <label class="form-group-label" for="idEditBuku">Id</label
+                ><br />
+                <input type="text" id="idEditBuku" name="idEditBuku" disabled />
+              </div>
+              <div class="form-group">
+                <label class="form-group-label" for="judulEditBuku">Judul</label
+                ><br />
+                <input
+                  type="text"
+                  id="judulEditBuku"
+                  name="judulEditBuku"
+                  placeholder="Inputkan Judul Buku"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-group-label" for="penulisEditBuku"
+                  >Penulis</label
+                ><br />
+                <input
+                  type="text"
+                  id="penulisEditBuku"
+                  name="penulisEditBuku"
+                  placeholder="Inputkan Penulis Buku"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-group-label" for="tahunEditBuku">Tahun</label
+                ><br />
+                <input
+                  type="number"
+                  id="tahunEditBuku"
+                  name="tahunEditBuku"
+                  placeholder="Inputkan Tahun Buku"
+                  required
+                />
+              </div>
+              <div class="form-checkbox">
+                <label id="text-5" for="input-checkbox">Selesai dibaca</label>
+                <input id="input-checkbox-edit" type="checkbox" />
+              </div>
+              <div class="btn-pop-up">
+                <button class="btn-save" type="submit">Simpan</button>
+                <button class="btn-cancel">Batal</button>
+              </div>
             </form>
-            <form id="cariBuku">    
-                <p id="text-3">Pencarian Buku</p>
-                <input id="judul-cariBuku" type="text" placeholder="Inputkan Judul Pencarian Buku" required>
-                <button type="submit" id="cariBukuSubmit">Cari</button>
-            </form>
+          </div>
         </div>
-        <div class="content-3">
-            <div class="rakBuku">
-                <p id="text-4">Rak Buku Belum Selesai Dibaca</p>
-                <div id="rakBukuBelumSelesai" class="listBuku">
-                </div>
-            </div>
-            <div class="rakBuku">
-                <p id="text-4">Rak Buku Sudah Selesai Dibaca</p>
-                <div id="rakBukuSudahSelesai" class="listBuku">
-                </div>
-            </div>
+      </div>
+      <div id="popUpHapus" class="pop-up">
+        <div class="pop-up-container-2">
+          <p>Apakah yakin ingin menghapus buku?</p>
+          <div class="btn-pop-up">
+            <button class="btn-true">Ya, Yakin</button>
+            <button class="btn-false">Tidak</button>
+          </div>
         </div>
-        <div id="popUpEdit" class="pop-up">
-            <div class="pop-up-container-1">
-                <div class="pop-up-form">
-                    <p>Form Edit Buku</p>
-                    <form id="formEditBuku">
-                        <div class="form-group">
-                            <label class="form-group-label" for="idEditBuku">Id</label><br>
-                            <input type="text" id="idEditBuku" name="idEditBuku" disabled>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-group-label" for="judulEditBuku">Judul</label><br>
-                            <input type="text" id="judulEditBuku" name="judulEditBuku" placeholder="Inputkan Judul Buku" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-group-label" for="penulisEditBuku">Penulis</label><br>
-                            <input type="text" id="penulisEditBuku" name="penulisEditBuku" placeholder="Inputkan Penulis Buku" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-group-label" for="tahunEditBuku">Tahun</label><br>
-                            <input type="number" id="tahunEditBuku" name="tahunEditBuku" placeholder="Inputkan Tahun Buku" required>
-                        </div>
-                        <div class="form-checkbox">
-                            <label id="text-5" for="input-checkbox">Selesai dibaca</label>
-                            <input id="input-checkbox-edit" type="checkbox">
-                        </div>
-                        <div class="btn-pop-up">
-                            <button class="btn-save" type="submit">Simpan</button>
-                            <button class="btn-cancel">Batal</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div id="popUpHapus" class="pop-up">
-            <div class="pop-up-container-2">
-                <p>Apakah yakin ingin menghapus buku?</p>
-                <div class="btn-pop-up">
-                    <button class="btn-true">Ya, Yakin</button>
-                    <button class="btn-false">Tidak</button>
-                </div>
-            </div>
-        </div>
+      </div>
     </main>
 
     <script src="assets/js/script.js"></script>
-</body>
+  </body>
 </html>
